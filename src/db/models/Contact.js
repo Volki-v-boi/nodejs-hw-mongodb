@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const studentSchema = new Schema(
+const contactSchema = new Schema(
   {
     name: {
       type: String,
@@ -11,7 +11,7 @@ const studentSchema = new Schema(
       required: true,
     },
 
-    gender: String,
+    email: String,
 
     isFavourite: {
       type: Boolean,
@@ -29,6 +29,6 @@ const studentSchema = new Schema(
   },
 );
 
-const StudentCollection = model('student', studentSchema);
+const ContactCollection = model('contact', contactSchema);
 
-export default StudentCollection;
+export default ContactCollection;
