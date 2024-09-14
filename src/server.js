@@ -4,7 +4,8 @@ import pino from 'pino-http';
 import { env } from './utils/env.js';
 
 import contactsRouter from './routers/contacts.js';
-// import contactCollection from './db/models/contact.js';
+import notFoundHendler from './middlewares/notFoundHandler.js';
+import errorHendler from './middlewares/errorHandler.js';
 
 export const setupServer = () => {
   const app = express();
@@ -21,18 +22,9 @@ export const setupServer = () => {
 
   app.use('/contacts', contactsRouter);
 
-  app.use('*', (req, res) => {
-    res.status(404).json({
-      message: 'Not found',
-    });
-  });
+  app.use(notFoundHendler);
 
-  app.use((err, req, res, next) => {
-    res.status(500).json({
-      message: 'Something went wrong',
-      error: err.message,
-    });
-  });
+  app.use(errorHendler);
 
   const port = Number(env('PORT', 3000));
 
