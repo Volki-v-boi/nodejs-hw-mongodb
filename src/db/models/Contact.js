@@ -24,7 +24,7 @@ const contactSchema = new Schema(
     },
   },
   {
-    // versiooKey: false,
+    versionKey: false,
     timestamps: true,
   },
 );
