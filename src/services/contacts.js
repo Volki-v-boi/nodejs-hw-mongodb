@@ -18,7 +18,6 @@ export const updateContact = async (contactId, payload, options = {}) => {
 
   return {
     contact: rawResult.value,
-    isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
 
