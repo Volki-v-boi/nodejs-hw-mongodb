@@ -40,4 +40,13 @@ contactSchema.pre('findOneAndUpdate', setUpdateOptions);
 
 const ContactCollection = model('contact', contactSchema);
 
+export const sortFields = [
+  'name',
+  'phoneNumber',
+  'email',
+  'contactType',
+  'createAt',
+  'updateAt',
+];
+
 export default ContactCollection;
