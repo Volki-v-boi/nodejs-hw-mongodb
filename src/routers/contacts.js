@@ -3,8 +3,8 @@ import { Router } from 'express';
 import * as contactControllers from '../controllers/contacts.js';
 
 import ctrlWrapper from '../utils/ctrlWrapper.js';
-
 import validateBody from '../utils/validateBody.js';
+
 import {
   createContactSchema,
   contactPatchSchema,

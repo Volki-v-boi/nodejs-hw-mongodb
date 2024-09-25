@@ -4,6 +4,8 @@ import pino from 'pino-http';
 import { env } from './utils/env.js';
 
 import contactsRouter from './routers/contacts.js';
+import authRouter from './routers/auth.js';
+
 import notFoundHendler from './middlewares/notFoundHandler.js';
 import errorHendler from './middlewares/errorHandler.js';
 
@@ -21,6 +23,7 @@ export const setupServer = () => {
   app.use(express.json());
 
   app.use('/contacts', contactsRouter);
+  app.use('/auth', authRouter);
 
   app.use(notFoundHendler);
 
