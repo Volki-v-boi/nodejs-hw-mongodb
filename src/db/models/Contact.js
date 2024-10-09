@@ -25,12 +25,14 @@ const contactSchema = new Schema(
       default: 'personal',
       required: true,
     },
+
+    photo: { type: String, default: null },
+
     userId: {
       type: Schema.Types.ObjectId,
       ref: 'user',
       required: true,
     },
-    photo: { type: String, default: null },
   },
   {
     versionKey: false,
