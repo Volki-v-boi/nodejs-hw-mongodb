@@ -19,7 +19,7 @@ export const getContacts = async ({
     contactQuery.where('isFavourite', filter.isFavourite);
   }
   if (filter.userId) {
-    contactQuery.where('userId').eq(filter.isFavourite);
+    contactQuery.where('userId').eq(filter.userId);
   }
 
   const contacts = await contactQuery
