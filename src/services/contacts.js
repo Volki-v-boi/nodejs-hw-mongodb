@@ -47,7 +47,7 @@ export const getContacts = async ({
     ...paginationData,
   };
 };
-export const getContact = (filter) => ContactCollection.findById(filter);
+export const getContact = (id) => ContactCollection.findById(id);
 export const addContact = (payload) => ContactCollection.create(payload);
 
 export const updateContact = async (contactId, payload, options = {}) => {
