@@ -28,8 +28,6 @@ export const getContacts = async ({
     .merge(contactQuery.getQuery())
     .countDocuments();
 
-  console.log(totalContacts);
-
   const paginationData = calculatePaginationData({
     page,
     perPage,
