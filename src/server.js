@@ -10,6 +10,8 @@ import authRouter from './routers/auth.js';
 import notFoundHendler from './middlewares/notFoundHandler.js';
 import errorHendler from './middlewares/errorHandler.js';
 
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
+
 export const setupServer = () => {
   const app = express();
 
@@ -27,6 +29,7 @@ export const setupServer = () => {
 
   app.use('/contacts', contactsRouter);
   app.use('/auth', authRouter);
+  app.use('api-docs', swaggerDocs());
 
   app.use(notFoundHendler);
 
