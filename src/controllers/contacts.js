@@ -113,8 +113,6 @@ export const patchContactController = async (req, res, next) => {
     updateData,
   );
 
-  console.log(result);
-
   if (!result) {
     next(createHttpError(404, 'Contact not found'));
     return;
