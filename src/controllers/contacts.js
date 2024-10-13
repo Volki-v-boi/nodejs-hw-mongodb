@@ -102,9 +102,15 @@ export const patchContactController = async (req, res, next) => {
   const { contactId } = req.params;
   const { _id: userId } = req.user;
 
+  const updateData = { ...req.body };
+
+  if (req.file) {
+    updateData.photo = req.file.path;
+  }
+
   const result = await contactServices.updateContact(
     { contactId, userId },
-    req.body,
+    updateData,
   );
 
   if (!result) {
@@ -115,7 +121,13 @@ export const patchContactController = async (req, res, next) => {
   res.json({
     status: 200,
     message: 'Successfully patched a contact!',
-    data: result,
+    data: {
+      contactId: result._id,
+      name: result.name,
+      phoneNumber: result.phoneNumber,
+      contactType: result.contactType,
+      photo: result.photo,
+    },
   });
 };
 
