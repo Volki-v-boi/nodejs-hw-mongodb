@@ -19,7 +19,7 @@ export const setupServer = () => {
     },
   });
 
-  app.use(logger);
+  // app.use(logger);
   app.use(cors());
   app.use(express.json());
   app.use(cookieParser());
